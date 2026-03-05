@@ -1,31 +1,35 @@
-import anvil.server
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
+import anvil.files
 from anvil.files import data_files
-import sqlite3, tempfile
+import anvil.server
+import sqlite3
 
-def _conn():
-  f = data_files["Club.db"]
-  tmp = tempfile.NamedTemporaryFile(delete=False)
-  tmp.write(f.get_bytes())
-  tmp.close()
-  conn = sqlite3.connect(tmp.name)
-  conn.row_factory = sqlite3.Row
-  return conn
-
-@anvil.server.callable
-def get_clubs():
-  with _conn() as conn:
-    cur = conn.cursor()
-    rows = cur.execute("SELECT FID, Name FROM Fussballclub ORDER BY Name").fetchall()
-  return [dict(r) for r in rows]
+# This is a server module. It runs on the Anvil server,
+# rather than in the user's browser.
+#
+# To allow anvil.server.call() to call functions here, we mark
+# them with @anvil.server.callable.
+# Here is an example - you can replace it with your own:
+#
+# @anvil.server.callable
+# def say_hello(name):
+#   print("Hello, " + name + "!")
+#   return 42
+#
 
 @anvil.server.callable
-def get_players_by_club(fid: int):
-  with _conn() as conn:
+def query_database(query: str):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
     cur = conn.cursor()
-    rows = cur.execute("""
-      SELECT Vorname, Nachname, Position, Geburtsdatum
-      FROM Spieler
-      WHERE FID = ?
-      ORDER BY Nachname, Vorname
-    """, (fid,)).fetchall()
-  return [dict(r) for r in rows]
+    result = cur.execute(query).fetchall()
+  return result
+
+@anvil.server.callable
+def query_database_dict(query: str):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute(query).fetchall()
+  return [dict(row) for row in result]
