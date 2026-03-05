@@ -6,6 +6,7 @@ from anvil.files import data_files
 import anvil.server
 import sqlite3
 
+
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
@@ -19,17 +20,31 @@ import sqlite3
 #   return 42
 #
 
-@anvil.server.callable
-def query_database(query: str):
-  with sqlite3.connect(data_files["Club.db"]) as conn:
-    cur = conn.cursor()
-    result = cur.execute(query).fetchall()
-  return result
+
+
+def get_connection():
+  db_file = anvil.files.data_files["Club.db"]
+  conn = sqlite3.connect(db_file)
+  conn.row_factory = sqlite3.Row
+  return conn
+
 
 @anvil.server.callable
-def query_database_dict(query: str):
-  with sqlite3.connect(data_files["Club.db"]) as conn:
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    result = cur.execute(query).fetchall()
-  return [dict(row) for row in result]
+def query_database(sql):
+  conn = get_connection()
+  cur = conn.cursor()
+  cur.execute(sql)
+  result = cur.fetchall()
+  conn.close()
+  return result
+
+
+@anvil.server.callable
+def query_database_dict(sql):
+  conn = get_connection()
+  cur = conn.cursor()
+  cur.execute(sql)
+  rows = cur.fetchall()
+  result = [dict(row) for row in rows]
+  conn.close()
+  return result

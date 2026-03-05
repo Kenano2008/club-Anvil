@@ -6,13 +6,18 @@ class Startseite(StartseiteTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
 
-    # Dropdown befüllen (wie bei dir: SELECT name FROM ...)
-    return_value = anvil.server.call('query_database', 'SELECT Name FROM Fussballclub ORDER BY Name')
-    return_value = [entry[0] for entry in return_value]
+    rows = anvil.server.call('query_database',
+                             'SELECT Name FROM Fussballclub ORDER BY Name')
+    club_names = [r[0] for r in rows]
 
-    print(return_value)
-    self.drop_down_clubliste.items = return_value
-    self.drop_down_clubliste_change()
+    self.drop_down_clubliste.items = club_names
+
+    if club_names:
+      self.drop_down_clubliste.selected_value = club_names[0]
+      self.drop_down_clubliste_change()
+    else:
+      self.repeating_panel_1_clubdetails.items = []
+
 
   @handle("drop_down_clubliste", "change")
   def drop_down_clubliste_change(self, **event_args):
@@ -21,10 +26,6 @@ class Startseite(StartseiteTemplate):
       self.repeating_panel_1_clubdetails.items = []
       return
 
-    # Club-Übersicht ähnlich wie "Gebäude" Query:
-    # - Spieleranzahl
-    # - Anzahl Trikots
-    # - Durchschnittsgehalt (Verträge)
     sql = f"""
       SELECT
         fc.Name AS club_name,
@@ -39,11 +40,5 @@ class Startseite(StartseiteTemplate):
       GROUP BY fc.Name;
     """
 
-    return_value = anvil.server.call('query_database_dict', sql)
-
-    # Extra Feld wie bei dir "gefaengnis_name"
-    for d in return_value:
-      d["selected_club"] = club_name
-
-    print(return_value)
-    self.repeating_panel_1_clubdetails.items = return_value
+    data = anvil.server.call('query_database_dict', sql)
+    self.repeating_panel_1_clubdetails.items = data
