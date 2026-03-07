@@ -1,7 +1,7 @@
 components:
 - components:
   - components:
-    - name: repeating_panel_1
+    - name: repeating_panel_spiele
       properties: {item_template: Startseite.Spiele.RowTemplate1}
       type: RepeatingPanel
     layout_properties: {grid_position: 'BFPOMG,YVXCOQ'}

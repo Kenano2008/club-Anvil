@@ -9,7 +9,7 @@ class RowTemplate1(RowTemplate1Template):
     self.label_gruendungsjahr.text = self.item["gruendungsjahr"]
     self.label_trainer.text = self.item["trainer_name"]
 
-  @handle("Auswahl", "click")
+  @handle("button_spiele", "click")
   def Auswahl_click(self, **event_args):
     """This method is called when the button is clicked"""
     print(self.item)
