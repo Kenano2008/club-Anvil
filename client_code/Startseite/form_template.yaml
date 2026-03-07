@@ -4,14 +4,19 @@ components:
     name: drop_down_clubliste
     properties: {}
     type: DropDown
-  - layout_properties: {grid_position: 'WXHCMN,PCDANC'}
-    name: repeating_panel_clubinfo
-    properties: {item_template: Startseite.ItemTemplate1}
-    type: RepeatingPanel
-  - layout_properties: {grid_position: 'DVUFOD,JSROSP'}
-    name: repeating_panel_spieler
-    properties: {item_template: Startseite.ItemTemplate2}
-    type: RepeatingPanel
+  - components:
+    - name: repeating_panel_clubinfo
+      properties: {item_template: Startseite.RowTemplate1}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'JWTZKR,HZYJPU'}
+    name: data_grid_1
+    properties:
+      columns:
+      - {data_key: column_1, id: JKSDUP, title: Club}
+      - {data_key: column_2, id: VJQQOR, title: 'Gründungsjahr '}
+      - {data_key: column_3, id: OJLQEN, title: 'Trainer '}
+      - {data_key: column_1, id: EGWCDW, title: Spiel}
+    type: DataGrid
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}

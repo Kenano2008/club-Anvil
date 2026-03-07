@@ -1,0 +1,31 @@
+components:
+- components:
+  - components:
+    - name: repeating_panel_1
+      properties: {item_template: Startseite.Spiele.RowTemplate1}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'BFPOMG,YVXCOQ'}
+    name: data_grid_1
+    properties:
+      columns:
+      - {data_key: column_1, id: JKSDUP, title: 'Club '}
+      - {data_key: column_2, id: VJQQOR, title: 'Stadion '}
+      - {data_key: column_3, id: OJLQEN, title: Datum}
+      - {data_key: column_4, id: IFFTBC, title: Ergebnis}
+    type: DataGrid
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
+  name: label_1
+  properties: {text: 'Spielplan '}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

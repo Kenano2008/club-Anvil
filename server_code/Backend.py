@@ -22,3 +22,21 @@ def query_database_dict(query: str):
     cur = conn.cursor()
     result = cur.execute(query).fetchall()
   return [dict(row) for row in result]
+
+
+
+
+@anvil.server.callable
+def get_spiele_by_club(club):
+  sql = f"""
+  SELECT 
+  f.Name AS club,
+  st.Name AS stadion,
+  sp.Datum AS datum,
+  sp.Ergebnis AS ergebnis
+  FROM Spiel sp
+  JOIN Fussballclub f ON sp.FID = f.FID
+  JOIN Stadion st ON sp.STID = st.STID
+  WHERE f.Name = '{club}'
+  """
+  return query_database_dict(sql)
