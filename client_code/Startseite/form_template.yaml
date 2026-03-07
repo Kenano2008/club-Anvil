@@ -1,9 +1,17 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'EPPXHV,KDCHBB'}
-    name: drop_down_1
+  - layout_properties: {grid_position: 'YFSFFL,EJAJRB'}
+    name: drop_down_clubliste
     properties: {}
     type: DropDown
+  - layout_properties: {grid_position: 'WXHCMN,PCDANC'}
+    name: repeating_panel_clubinfo
+    properties: {item_template: Startseite.ItemTemplate1}
+    type: RepeatingPanel
+  - layout_properties: {grid_position: 'DVUFOD,JSROSP'}
+    name: repeating_panel_spieler
+    properties: {item_template: Startseite.ItemTemplate2}
+    type: RepeatingPanel
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
@@ -12,6 +20,10 @@ components:
   name: navbar_links
   properties: {}
   type: FlowPanel
+- layout_properties: {slot: title}
+  name: label_1
+  properties: {text: Fußballclub-Verwaltung}
+  type: Label
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate

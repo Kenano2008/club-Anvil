@@ -1,0 +1,7 @@
+components:
+- layout_properties: {grid_position: 'OJFBQK,KHZIRU'}
+  name: label1
+  properties: {item_template: Startseite.ItemTemplate1.ItemTemplate4}
+  type: RepeatingPanel
+container: {type: ColumnPanel}
+is_package: true

@@ -4,6 +4,10 @@ unique_ids:
     theme.css: QIQENKS4N5KTOC5B5BGONNTEFCMFKJNZ
   forms:
     Startseite: CVMELVOVPH725GO6JJSHTNXBJAR4MCAG
+    Startseite.ItemTemplate1: '1772896951055602431752311.9772'
+    Startseite.ItemTemplate1.ItemTemplate3: '1772899168076676161650450.5969'
+    Startseite.ItemTemplate1.ItemTemplate4: '1772899168188549479696841.77747'
+    Startseite.ItemTemplate2: '1772898436551711888771170.0477'
   modules: {}
   scripts: {}
   server_modules:
