@@ -1,18 +1,18 @@
 components:
 - components:
-  - layout_properties: {col_xs: 0, row: NOJITM, width_xs: 2}
+  - layout_properties: {col_xs: 0, row: KLOAGF, width_xs: 2}
     name: label_club_name
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 3, row: NOJITM, width_xs: 2}
+  - layout_properties: {col_xs: 3, row: KLOAGF, width_xs: 2}
     name: label_gruendungsjahr
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 6, row: NOJITM, width_xs: 2}
-    name: label_trainer
-    properties: {}
-    type: Label
-  - layout_properties: {col_xs: 8, row: NOJITM, width_xs: 2}
+  - layout_properties: {col_xs: 5, row: KLOAGF, width_xs: 3}
+    name: trainer_Name
+    properties: {text: Trainer}
+    type: Button
+  - layout_properties: {col_xs: 7, row: KLOAGF, width_xs: 3}
     name: button_spiele
     properties: {text: spiel}
     type: Button

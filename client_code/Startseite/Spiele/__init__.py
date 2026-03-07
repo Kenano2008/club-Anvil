@@ -11,3 +11,4 @@ class Spiele(SpieleTemplate):
     spiele = anvil.server.call('get_spiele_by_club', club_name)
 
     self.repeating_panel_spiele.items = spiele
+

@@ -24,21 +24,22 @@ def query_database_dict(query: str):
   return [dict(row) for row in result]
 
 
+
 @anvil.server.callable
 def get_spiele_by_club(club):
-  sql = f"""
-  SELECT 
-    f.Name AS club,
-    st.Name AS stadion,
-    sp.Datum AS datum,
-    sp.Ergebnis AS ergebnis
-  FROM Spiel sp
-  JOIN Fussballclub f ON sp.FID = f.FID
-  JOIN Stadion st ON sp.STID = st.STID
-  WHERE f.Name = '{club}'
-  """
-  return query_database_dict(sql)
-
-
-
-
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute("""
+      SELECT 
+        st.Name AS stadion,
+        sp.Datum AS datum,
+        sp.Ergebnis AS ergebnis,
+        sp.Gegner AS gegner,
+        sp.Wettbewerb AS wettbewerb
+      FROM Spiel sp
+      JOIN Fussballclub f ON sp.FID = f.FID
+      JOIN Stadion st ON sp.STID = st.STID
+      WHERE f.Name = ?
+    """, (club,)).fetchall()
+  return [dict(row) for row in result]

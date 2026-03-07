@@ -1,19 +1,23 @@
 components:
 - components:
-  - layout_properties: {col_xs: 0, row: VPZELX, width_xs: 2}
-    name: label_club
-    properties: {}
-    type: Label
-  - layout_properties: {col_xs: 3, row: VPZELX, width_xs: 3}
+  - layout_properties: {col_xs: 0, row: VPZELX, width_xs: 3}
     name: label_stadion
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 6, row: VPZELX, width_xs: 3}
+  - layout_properties: {col_xs: 3, row: VPZELX, width_xs: 2}
     name: label_datum
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 9, row: VPZELX, width_xs: 2}
+  - layout_properties: {col_xs: 5, row: VPZELX, width_xs: 2}
     name: label_ergebnis
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 7, row: VPZELX, width_xs: 2}
+    name: label_gegner
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 9, row: VPZELX, width_xs: 2}
+    name: label_wettbewerb
     properties: {}
     type: Label
   layout_properties: {}

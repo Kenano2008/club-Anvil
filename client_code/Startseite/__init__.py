@@ -2,6 +2,7 @@ from ._anvil_designer import StartseiteTemplate
 from anvil import *
 import anvil.server
 
+
 class Startseite(StartseiteTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
@@ -16,11 +17,9 @@ class Startseite(StartseiteTemplate):
 
     self.drop_down_clubliste_change()
 
-
   @handle("drop_down_clubliste", "change")
   def drop_down_clubliste_change(self, **event_args):
-
-    sql = f"""
+    sql_club = f"""
       SELECT 
         f.Name AS club_name,
         f.Gruendungsjahr AS gruendungsjahr,
@@ -30,6 +29,5 @@ class Startseite(StartseiteTemplate):
       WHERE f.Name = '{self.drop_down_clubliste.selected_value}'
     """
 
-    club_info = anvil.server.call('query_database_dict', sql)
-
+    club_info = anvil.server.call('query_database_dict', sql_club)
     self.repeating_panel_clubinfo.items = club_info
