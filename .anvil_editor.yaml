@@ -4,11 +4,11 @@ unique_ids:
     theme.css: QIQENKS4N5KTOC5B5BGONNTEFCMFKJNZ
   forms:
     Startseite: CVMELVOVPH725GO6JJSHTNXBJAR4MCAG
-    Startseite.ItemTemplate1: '1772896951055602431752311.9772'
     Startseite.RowTemplate1: '1772904796293256979281484.2432'
-    Startseite.RowTemplate2: '1772905426767410106144627.3413'
     Startseite.Spiele: '1772907965538609166211216.3062'
     Startseite.Spiele.RowTemplate1: '1772907994328277653751632.5881'
+    Startseite.Spieler: '1773171712709257675022754.4381'
+    Startseite.Spieler.RowTemplate1: '1773171742256778187814300.6122'
   modules: {}
   scripts: {}
   server_modules:

@@ -4,21 +4,27 @@ components:
     name: label_club_name
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 3, row: KLOAGF, width_xs: 2}
+  - layout_properties: {col_xs: 2, row: KLOAGF, width_xs: 2}
     name: label_gruendungsjahr
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 5, row: KLOAGF, width_xs: 3}
+  - layout_properties: {col_xs: 4, row: KLOAGF, width_xs: 3}
     name: trainer_Name
     properties: {text: Trainer}
     type: Button
-  - layout_properties: {col_xs: 7, row: KLOAGF, width_xs: 3}
+  - layout_properties: {col_xs: 7, row: KLOAGF, width_xs: 2}
     name: button_spiele
-    properties: {text: spiel}
+    properties: {text: auswahl}
+    type: Button
+  - layout_properties: {col_xs: 9, row: KLOAGF, width_xs: 2}
+    name: button_spieler
+    properties: {text: auswahl}
     type: Button
   layout_properties: {column: 'null'}
   name: grid_panel_1
   properties: {}
   type: GridPanel
-container: {type: DataRowPanel}
+container:
+  properties: {italic: true}
+  type: DataRowPanel
 is_package: true

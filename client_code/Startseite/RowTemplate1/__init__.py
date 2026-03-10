@@ -8,9 +8,15 @@ class RowTemplate1(RowTemplate1Template):
     self.label_club_name.text = self.item["club_name"]
     self.label_gruendungsjahr.text = self.item["gruendungsjahr"]
     
+    
 
   @handle("button_spiele", "click")
   def Auswahl_click(self, **event_args):
     """This method is called when the button is clicked"""
     print(self.item)
     open_form('Startseite.Spiele',self.item)
+
+
+  @handle("button_spieler", "click")
+  def button_spieler_click(self, **event_args):
+    open_form('Startseite.Spieler', self.item)

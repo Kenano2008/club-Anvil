@@ -24,7 +24,6 @@ def query_database_dict(query: str):
   return [dict(row) for row in result]
 
 
-
 @anvil.server.callable
 def get_spiele_by_club(club):
   with sqlite3.connect(data_files["Club.db"]) as conn:
@@ -42,4 +41,22 @@ def get_spiele_by_club(club):
       JOIN Stadion st ON sp.STID = st.STID
       WHERE f.Name = ?
     """, (club,)).fetchall()
+  return [dict(row) for row in result]
+
+
+@anvil.server.callable
+def get_spieler_by_club(club_name):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute("""
+      SELECT 
+        s.Vorname AS vorname,
+        s.Nachname AS nachname,
+        s.Position AS position,
+        s.Geburtsdatum AS geburtsdatum
+      FROM Spieler s
+      JOIN Fussballclub f ON s.FID = f.FID
+      WHERE f.Name = ?
+    """, (club_name,)).fetchall()
   return [dict(row) for row in result]

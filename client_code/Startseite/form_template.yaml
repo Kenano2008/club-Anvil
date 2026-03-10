@@ -13,9 +13,10 @@ components:
     properties:
       columns:
       - {data_key: column_1, id: JKSDUP, title: Club}
-      - {data_key: column_2, expand: false, id: VJQQOR, title: 'Gründungsjahr ', width: 242}
+      - {data_key: column_2, expand: false, id: VJQQOR, title: 'Gründungsjahr ', width: 198}
       - {data_key: column_3, id: OJLQEN, title: 'Trainer '}
       - {data_key: column_1, id: EGWCDW, title: Spiel}
+      - {data_key: column_1, id: SYUWPC, title: Spieler}
     type: DataGrid
   layout_properties: {slot: default}
   name: content_panel
