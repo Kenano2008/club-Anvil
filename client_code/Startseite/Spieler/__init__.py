@@ -11,3 +11,11 @@ class Spieler(SpielerTemplate):
     spieler = anvil.server.call('get_spieler_by_club', club_name)
 
     self.repeating_panel_spieler.items = spieler
+
+
+  @handle("button_zueruck", "click")
+  def button_zurueck_click(self, **event_args):
+    open_form('Startseite')
+
+
+    

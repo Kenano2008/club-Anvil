@@ -1,21 +1,29 @@
 components:
 - components:
-  - layout_properties: {col_xs: 0, row: BWEGPI, width_xs: 2}
+  - layout_properties: {col_xs: 0, row: BKWJEK, width_xs: 2}
     name: label_vorname
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 3, row: BWEGPI, width_xs: 2}
+  - layout_properties: {col_xs: 2, row: BKWJEK, width_xs: 2}
     name: label_nachname
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 6, row: BWEGPI, width_xs: 2}
+  - layout_properties: {col_xs: 4, row: BKWJEK, width_xs: 2}
     name: label_position
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 9, row: BWEGPI, width_xs: 2}
+  - layout_properties: {col_xs: 6, row: BKWJEK, width_xs: 2}
     name: label_geburtsdatum
     properties: {}
     type: Label
+  - layout_properties: {col_xs: 8, row: BKWJEK, width_xs: 2}
+    name: button_vertrag
+    properties: {text: auswahl}
+    type: Button
+  - layout_properties: {col_xs: 10, row: BKWJEK, width_xs: 2}
+    name: button_trikot
+    properties: {text: auswahl}
+    type: Button
   layout_properties: {column: 'null'}
   name: grid_panel_1
   properties: {}

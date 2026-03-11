@@ -51,6 +51,7 @@ def get_spieler_by_club(club_name):
     cur = conn.cursor()
     result = cur.execute("""
       SELECT 
+        s.SID AS sid,
         s.Vorname AS vorname,
         s.Nachname AS nachname,
         s.Position AS position,
@@ -60,3 +61,60 @@ def get_spieler_by_club(club_name):
       WHERE f.Name = ?
     """, (club_name,)).fetchall()
   return [dict(row) for row in result]
+
+
+@anvil.server.callable
+def get_vertrag_by_spieler(sid):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute("""
+      SELECT
+        v.VID AS vid,
+        v.Gehalt AS gehalt,
+        v.Vertragsbeginn AS vertragsbeginn,
+        v.Vertragsende AS vertragsende
+      FROM Vertrag v
+      WHERE v.SID = ?
+    """, (sid,)).fetchone()
+
+  return dict(result) if result else None
+
+
+
+@anvil.server.callable
+def get_stadion_by_name(stadion_name):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    result = cur.execute("""
+      SELECT
+        Name AS name,
+        Ort AS ort,
+        Kapazitaet AS kapazitaet
+      FROM Stadion
+      WHERE Name = ?
+    """, (stadion_name,)).fetchone()
+
+  return dict(result) if result else None
+
+
+@anvil.server.callable
+def get_trikots_by_spieler(sid):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute("""
+      SELECT
+        TID AS tid,
+        Zustand AS zustand,
+        Trikotnummer AS trikotnummer,
+        Saison AS saison,
+        Groesse AS groesse
+      FROM Trikot
+      WHERE SID = ?
+    """, (sid,)).fetchall()
+
+  return [dict(row) for row in result]
+

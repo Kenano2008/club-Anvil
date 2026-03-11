@@ -4,14 +4,20 @@ components:
     - name: repeating_panel_spieler
       properties: {item_template: Startseite.Spieler.RowTemplate1}
       type: RepeatingPanel
+    - layout_properties: {}
+      name: button_zueruck
+      properties: {text: Zurück}
+      type: Button
     layout_properties: {grid_position: 'PZYZRP,MSTTAO'}
     name: data_grid_1
     properties:
       columns:
-      - {data_key: column_1, id: JKSDUP, title: 'Vorname '}
+      - {data_key: column_1, expand: false, id: JKSDUP, title: 'Vorname ', width: 126}
       - {data_key: column_2, id: VJQQOR, title: 'Nachname '}
       - {data_key: column_3, id: OJLQEN, title: 'Position '}
       - {data_key: column_1, id: BTRIIA, title: 'Geburtsjahr '}
+      - {data_key: column_1, expand: false, id: HDJAZF, title: Vertrag, width: 125}
+      - {data_key: column_1, id: ELYGNT, title: Trikot}
     type: DataGrid
   layout_properties: {slot: default}
   name: content_panel

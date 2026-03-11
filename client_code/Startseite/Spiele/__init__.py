@@ -12,3 +12,7 @@ class Spiele(SpieleTemplate):
 
     self.repeating_panel_spiele.items = spiele
 
+
+  @handle("button_zurueck", "click")
+  def button_zurueck_click(self, **event_args):
+    open_form('Startseite')

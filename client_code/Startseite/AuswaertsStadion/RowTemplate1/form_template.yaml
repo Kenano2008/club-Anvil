@@ -1,0 +1,20 @@
+components:
+- components:
+  - layout_properties: {col_xs: 0, row: QRXULW, width_xs: 3}
+    name: label_name
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 4, row: QRXULW, width_xs: 3}
+    name: label_ort
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 8, row: QRXULW, width_xs: 3}
+    name: label_kapazitaet
+    properties: {}
+    type: Label
+  layout_properties: {}
+  name: grid_panel_1
+  properties: {}
+  type: GridPanel
+container: {type: DataRowPanel}
+is_package: true

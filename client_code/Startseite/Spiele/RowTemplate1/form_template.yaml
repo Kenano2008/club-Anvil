@@ -1,9 +1,9 @@
 components:
 - components:
-  - layout_properties: {col_xs: 0, row: VPZELX, width_xs: 3}
-    name: label_stadion
-    properties: {}
-    type: Label
+  - layout_properties: {col_xs: 0, row: VPZELX, width_xs: 4}
+    name: button_stadion
+    properties: {text: button_1}
+    type: Button
   - layout_properties: {col_xs: 3, row: VPZELX, width_xs: 2}
     name: label_datum
     properties: {}
