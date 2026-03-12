@@ -4,6 +4,10 @@ components:
     - name: repeating_panel_1
       properties: {item_template: Startseite.Trikots.RowTemplate1}
       type: RepeatingPanel
+    - layout_properties: {}
+      name: button_zueruck
+      properties: {text: Zurück}
+      type: Button
     layout_properties: {grid_position: 'KHXZKV,SJFAVD'}
     name: data_grid_1
     properties:

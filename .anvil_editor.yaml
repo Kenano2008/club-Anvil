@@ -16,6 +16,8 @@ unique_ids:
     Startseite.SpielerVertrag.RowTemplate1.ItemTemplate1: '1773220562451380458312055.4649'
     Startseite.SpielerVertrag.RowTemplate1.ItemTemplate2: '1773220654433226732802444.513'
     Startseite.SpielerVertrag.RowTemplate1.ItemTemplate3: '177322071601212421578272.169386'
+    Startseite.Trainer: '1773314310467109938670478.64569'
+    Startseite.Trainer.RowTemplate1: '1773314332316786582127797.5067'
     Startseite.Trikots: '1773225022107918671801571.7529'
     Startseite.Trikots.RowTemplate1: '177322505796886995270798.87148'
   modules: {}

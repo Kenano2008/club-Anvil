@@ -1,0 +1,28 @@
+components:
+- components:
+  - layout_properties: {col_xs: 0, row: SQFGQW, width_xs: 2}
+    name: label_vorname
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 2, row: SQFGQW, width_xs: 2}
+    name: label_nachname
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 4, row: SQFGQW, width_xs: 3}
+    name: label_staatsbuergerschaft
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 7, row: SQFGQW, width_xs: 2}
+    name: label_alter
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 9, row: SQFGQW, width_xs: 3}
+    name: label_gehalt
+    properties: {}
+    type: Label
+  layout_properties: {}
+  name: grid_panel_1
+  properties: {}
+  type: GridPanel
+container: {type: DataRowPanel}
+is_package: true

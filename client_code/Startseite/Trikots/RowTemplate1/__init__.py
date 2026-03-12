@@ -7,5 +7,5 @@ class RowTemplate1(RowTemplate1Template):
 
     self.label_zustand.text = self.item["zustand"]
     self.label_trikotnummer.text = str(self.item["trikotnummer"])
-    self.label_saison.text = self.item["saison"]
+    self.label_Saison.text = self.item["saison"]
     self.label_groesse.text = self.item["groesse"]
