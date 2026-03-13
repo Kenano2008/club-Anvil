@@ -118,3 +118,15 @@ def get_trikots_by_spieler(sid):
 
   return [dict(row) for row in result]
 
+@anvil.server.callable
+def get_trainer():
+  sql = """
+  SELECT 
+    Vorname AS vorname,
+    Nachname AS nachname,
+    Staatsbuergerschaft AS staatsbuergerschaft,
+    Alter_Jahre AS alter,
+    Gehalt AS gehalt
+  FROM Trainer
+  """
+  return query_database_dict(sql)
