@@ -81,13 +81,11 @@ def get_vertrag_by_spieler(sid):
   return dict(result) if result else None
 
 
-
 @anvil.server.callable
 def get_stadion_by_name(stadion_name):
   with sqlite3.connect(data_files["Club.db"]) as conn:
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
-
     result = cur.execute("""
       SELECT
         Name AS name,
@@ -118,15 +116,22 @@ def get_trikots_by_spieler(sid):
 
   return [dict(row) for row in result]
 
+
 @anvil.server.callable
-def get_trainer():
-  sql = """
-  SELECT 
-    Vorname AS vorname,
-    Nachname AS nachname,
-    Staatsbuergerschaft AS staatsbuergerschaft,
-    Alter_Jahre AS alter,
-    Gehalt AS gehalt
-  FROM Trainer
-  """
-  return query_database_dict(sql)
+def get_trainer_by_club(club_name):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    result = cur.execute("""
+      SELECT
+        t.Vorname AS vorname,
+        t.Nachname AS nachname,
+        t.Staatsbuergerschaft AS staatsbuergerschaft,
+        t.Alter_Jahre AS alter_jahre,
+        t.Gehalt AS gehalt
+      FROM Trainer t
+      JOIN Fussballclub f ON t.FID = f.FID
+      WHERE f.Name = ?
+    """, (club_name,)).fetchall()
+
+  return [dict(row) for row in result]

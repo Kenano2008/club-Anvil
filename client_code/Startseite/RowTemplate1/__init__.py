@@ -20,3 +20,7 @@ class RowTemplate1(RowTemplate1Template):
   @handle("button_spieler", "click")
   def button_spieler_click(self, **event_args):
     open_form('Startseite.Spieler', self.item)
+
+  @handle("trainer_Name", "click")
+  def button_trainer_click(self, **event_args):
+    open_form('Startseite.Trainer', self.item)

@@ -8,5 +8,5 @@ class RowTemplate1(RowTemplate1Template):
     self.label_vorname.text = self.item["vorname"]
     self.label_nachname.text = self.item["nachname"]
     self.label_staatsbuergerschaft.text = self.item["staatsbuergerschaft"]
-    self.label_alter.text = self.item["alter"]
-    self.label_gehalt.text = self.item["gehalt"]
+    self.label_alter.text = str(self.item["alter_jahre"])
+    self.label_gehalt.text = str(self.item["gehalt"])
