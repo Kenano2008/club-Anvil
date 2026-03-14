@@ -25,7 +25,7 @@ def query_database_dict(query: str):
 
 
 @anvil.server.callable
-def get_spiele_by_club(club):
+def get_spiele_by_club(club_name):
   with sqlite3.connect(data_files["Club.db"]) as conn:
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
@@ -40,7 +40,7 @@ def get_spiele_by_club(club):
       JOIN Fussballclub f ON sp.FID = f.FID
       JOIN Stadion st ON sp.STID = st.STID
       WHERE f.Name = ?
-    """, (club,)).fetchall()
+    """, (club_name,)).fetchall()
   return [dict(row) for row in result]
 
 
@@ -135,3 +135,58 @@ def get_trainer_by_club(club_name):
     """, (club_name,)).fetchall()
 
   return [dict(row) for row in result]
+
+
+@anvil.server.callable
+def get_spieler_alter_by_club(club_name):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    result = cur.execute("""
+      SELECT
+        s.Vorname || ' ' || s.Nachname AS name,
+        CAST((julianday('now') - julianday(s.Geburtsdatum)) / 365.25 AS INT) AS alter_jahre
+      FROM Spieler s
+      JOIN Fussballclub f ON s.FID = f.FID
+      WHERE f.Name = ?
+    """, (club_name,)).fetchall()
+
+  return [dict(row) for row in result]
+
+
+@anvil.server.callable
+def get_alter_statistik_by_club(club_name):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    result = cur.execute("""
+      SELECT
+        s.Vorname || ' ' || s.Nachname AS name,
+        CAST((julianday('now') - julianday(s.Geburtsdatum)) / 365.25 AS INT) AS alter_jahre
+      FROM Spieler s
+      JOIN Fussballclub f ON s.FID = f.FID
+      WHERE f.Name = ?
+    """, (club_name,)).fetchall()
+
+  daten = [dict(row) for row in result]
+
+  if not daten:
+    return {
+      "durchschnitt": 0,
+      "juengster": None,
+      "aeltester": None
+    }
+
+  alter_liste = [d["alter_jahre"] for d in daten]
+  durchschnitt = round(sum(alter_liste) / len(alter_liste), 1)
+
+  juengster = min(daten, key=lambda x: x["alter_jahre"])
+  aeltester = max(daten, key=lambda x: x["alter_jahre"])
+
+  return {
+    "durchschnitt": durchschnitt,
+    "juengster": juengster,
+    "aeltester": aeltester
+  }

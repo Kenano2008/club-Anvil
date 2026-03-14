@@ -8,6 +8,10 @@ components:
       name: button_zurueck
       properties: {align: center, text: Zurück}
       type: Button
+    - layout_properties: {slot: footer}
+      name: plot_1
+      properties: {}
+      type: Plot
     layout_properties: {grid_position: 'BFPOMG,YVXCOQ'}
     name: data_grid_1
     properties:
