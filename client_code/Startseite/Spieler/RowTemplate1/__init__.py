@@ -1,7 +1,6 @@
 from ._anvil_designer import RowTemplate1Template
 from anvil import *
 
-
 class RowTemplate1(RowTemplate1Template):
   def __init__(self, **properties):
     self.init_components(**properties)
@@ -17,6 +16,3 @@ class RowTemplate1(RowTemplate1Template):
   @handle("button_trikot", "click")
   def button_trikot_click(self, **event_args):
     open_form('Startseite.Trikots', self.item, self.item["club"])
-
-
-  

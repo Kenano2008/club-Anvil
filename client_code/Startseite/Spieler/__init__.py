@@ -11,6 +11,10 @@ class Spieler(SpielerTemplate):
     club_name = club["club_name"]
 
     spieler = anvil.server.call('get_spieler_by_club', club_name)
+
+    for s in spieler:
+      s["club"] = club
+
     self.repeating_panel_spieler.items = spieler
 
     daten = anvil.server.call('get_spieler_alter_by_club', club_name)
@@ -33,7 +37,6 @@ class Spieler(SpielerTemplate):
 
     self.plot_alter.figure = fig
 
-
     stats = anvil.server.call('get_alter_statistik_by_club', club_name)
 
     self.label_durchschnitt.text = f"Durchschnittsalter: {stats['durchschnitt']}"
@@ -41,12 +44,11 @@ class Spieler(SpielerTemplate):
     self.label_aeltester.text = f"Ältester Spieler: {stats['aeltester']['name']} ({stats['aeltester']['alter_jahre']} Jahre)"
 
 
-  @handle("button_zueruck", "click")
+  @handle("button_zurueck", "click")
   def button_zurueck_click(self, **event_args):
     open_form('Startseite')
 
+
   @handle("plot_alter", "click")
   def plot_alter_click(self, points, **event_args):
-    """This method is called when a data point is clicked."""
     pass
-    

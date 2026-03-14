@@ -6,7 +6,7 @@ components:
       properties: {background: '', item_template: Startseite.Spieler.RowTemplate1}
       type: RepeatingPanel
     - layout_properties: {}
-      name: button_zueruck
+      name: button_zurueck
       properties: {align: left, background: 'theme:On Background', foreground: 'theme:Primary Container', text: Zurück}
       type: Button
     - event_bindings: {}
