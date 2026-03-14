@@ -1,12 +1,13 @@
 components:
 - components:
   - components:
-    - name: repeating_panel_spieler
-      properties: {item_template: Startseite.Spieler.RowTemplate1}
+    - layout_properties: {}
+      name: repeating_panel_spieler
+      properties: {background: '', item_template: Startseite.Spieler.RowTemplate1}
       type: RepeatingPanel
     - layout_properties: {}
       name: button_zueruck
-      properties: {text: Zurück}
+      properties: {align: left, background: 'theme:On Background', foreground: 'theme:Primary Container', text: Zurück}
       type: Button
     - event_bindings: {}
       layout_properties: {slot: footer}
@@ -20,15 +21,15 @@ components:
     - components:
       - layout_properties: {col_xs: 0, row: WZXALR, width_xs: 3}
         name: label_durchschnitt
-        properties: {}
+        properties: {align: center}
         type: Label
-      - layout_properties: {col_xs: 2, row: WZXALR, width_xs: 4}
+      - layout_properties: {col_xs: 3, row: WZXALR, width_xs: 5}
         name: label_juengster
-        properties: {bold: false, italic: false}
+        properties: {align: center, bold: false, italic: false}
         type: Label
-      - layout_properties: {col_xs: 7, row: WZXALR, width_xs: 4}
+      - layout_properties: {col_xs: 8, row: WZXALR, width_xs: 4}
         name: label_aeltester
-        properties: {}
+        properties: {align: center}
         type: Label
       name: grid_panel_1
       properties: {}

@@ -5,8 +5,8 @@ components:
       properties: {item_template: Startseite.AuswaertsStadion.RowTemplate1}
       type: RepeatingPanel
     - layout_properties: {}
-      name: button_zuruck
-      properties: {text: Zurück}
+      name: button_zurueck
+      properties: {align: left, background: 'theme:On Background', foreground: 'theme:On Primary', text: Zurück}
       type: Button
     layout_properties: {grid_position: 'ABTHPA,JHIVQT'}
     name: data_grid_1

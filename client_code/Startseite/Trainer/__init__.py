@@ -8,3 +8,8 @@ class Trainer(TrainerTemplate):
 
     trainer = anvil.server.call('get_trainer_by_club', club["club_name"])
     self.repeating_panel_1.items = trainer
+
+
+  @handle("button_zurueck", "click")
+  def button_zurueck_click(self, **event_args):
+    open_form('Startseite')

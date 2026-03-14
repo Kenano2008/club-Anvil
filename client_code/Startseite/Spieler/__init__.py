@@ -41,7 +41,7 @@ class Spieler(SpielerTemplate):
     self.label_aeltester.text = f"Ältester Spieler: {stats['aeltester']['name']} ({stats['aeltester']['alter_jahre']} Jahre)"
 
 
-  @handle("button_zurueck", "click")
+  @handle("button_zueruck", "click")
   def button_zurueck_click(self, **event_args):
     open_form('Startseite')
 

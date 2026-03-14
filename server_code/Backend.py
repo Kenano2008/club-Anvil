@@ -190,3 +190,65 @@ def get_alter_statistik_by_club(club_name):
     "juengster": juengster,
     "aeltester": aeltester
   }
+
+
+@anvil.server.callable
+def get_spiel_statistik_by_club(club_name):
+  with sqlite3.connect(data_files["Club.db"]) as conn:
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    result = cur.execute("""
+      SELECT
+        sp.Ergebnis AS ergebnis,
+        sp.Gegner AS gegner
+      FROM Spiel sp
+      JOIN Fussballclub f ON sp.FID = f.FID
+      WHERE f.Name = ?
+    """, (club_name,)).fetchall()
+
+  spiele = [dict(row) for row in result]
+
+  siege = 0
+  unentschieden = 0
+  niederlagen = 0
+
+  hoechster_sieg = None
+  hoechste_niederlage = None
+
+  for spiel in spiele:
+    tore_eigen, tore_gegner = map(int, spiel["ergebnis"].split(":"))
+    diff = tore_eigen - tore_gegner
+
+    if diff > 0:
+      siege += 1
+      if hoechster_sieg is None or diff > hoechster_sieg["diff"]:
+        hoechster_sieg = {
+          "gegner": spiel["gegner"],
+          "ergebnis": spiel["ergebnis"],
+          "diff": diff
+        }
+
+    elif diff == 0:
+      unentschieden += 1
+
+    else:
+      niederlagen += 1
+      if hoechste_niederlage is None or diff < hoechste_niederlage["diff"]:
+        hoechste_niederlage = {
+          "gegner": spiel["gegner"],
+          "ergebnis": spiel["ergebnis"],
+          "diff": diff
+        }
+
+  gesamt = len(spiele)
+  gewinnrate = round((siege / gesamt) * 100, 1) if gesamt > 0 else 0
+
+  return {
+    "siege": siege,
+    "unentschieden": unentschieden,
+    "niederlagen": niederlagen,
+    "gewinnrate": gewinnrate,
+    "hoechster_sieg": hoechster_sieg,
+    "hoechste_niederlage": hoechste_niederlage
+  }

@@ -11,3 +11,7 @@ class Trikots(TrikotsTemplate):
 
     trikots = anvil.server.call('get_trikots_by_spieler', spieler["sid"])
     self.repeating_panel_1.items = trikots
+
+  @handle("button_zurueck", "click")
+  def button_zurueck_click(self, **event_args):
+    open_form('Startseite.Spieler', self.club)

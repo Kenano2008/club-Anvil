@@ -18,4 +18,4 @@ class SpielerVertrag(SpielerVertragTemplate):
       
   @handle("button_zurueck", "click")
   def button_zurueck_click(self, **event_args):
-    open_form('Startseite')
+    open_form('Startseite.Spieler', self.clu
