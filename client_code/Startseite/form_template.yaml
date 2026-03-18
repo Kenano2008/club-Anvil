@@ -13,7 +13,7 @@ components:
     properties:
       columns:
       - {data_key: column_1, expand: false, id: JKSDUP, title: Club, width: 155}
-      - {data_key: column_2, expand: false, id: VJQQOR, title: 'Gründungsjahr ', width: 211}
+      - {data_key: column_2, expand: false, id: VJQQOR, title: 'Gründungsjahr ', width: 227}
       - {data_key: column_3, expand: false, id: OJLQEN, title: 'Trainer ', width: 173}
       - {data_key: column_1, expand: false, id: EGWCDW, title: Spiele, width: 189}
       - {data_key: column_1, id: SYUWPC, title: Spieler}
