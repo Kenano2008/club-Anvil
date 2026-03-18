@@ -4,15 +4,17 @@ import anvil.server
 
 
 class Startseite(StartseiteTemplate):
-  def __init__(self, **properties):
+  def __init__(self, selected_club=None, **properties):
     self.init_components(**properties)
 
-    return_value = anvil.server.call('query_database', 'SELECT Name FROM Fussballclub')
+    return_value = anvil.server.call('query_database', 'SELECT Name FROM Fussballclub ORDER BY Name')
     return_value = [entry[0] for entry in return_value]
 
     self.drop_down_clubliste.items = return_value
 
-    if return_value:
+    if selected_club and selected_club in return_value:
+      self.drop_down_clubliste.selected_value = selected_club
+    elif return_value:
       self.drop_down_clubliste.selected_value = return_value[0]
 
     self.drop_down_clubliste_change()

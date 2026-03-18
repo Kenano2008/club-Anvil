@@ -12,9 +12,9 @@ components:
     name: data_grid_1
     properties:
       columns:
-      - {data_key: column_1, id: JKSDUP, title: Vorname}
-      - {data_key: column_2, id: VJQQOR, title: 'Nachname '}
-      - {data_key: column_3, id: OJLQEN, title: Staatsbürgerschaft}
+      - {data_key: column_1, expand: false, id: JKSDUP, title: Vorname, width: 143}
+      - {data_key: column_2, expand: false, id: VJQQOR, title: 'Nachname ', width: 153}
+      - {data_key: column_3, expand: false, id: OJLQEN, title: Staatsbürgerschaft, width: 242}
       - {data_key: column_1, id: YDAONY, title: Alter}
       - {data_key: column_1, id: HUBAOU, title: Gehalt}
     type: DataGrid

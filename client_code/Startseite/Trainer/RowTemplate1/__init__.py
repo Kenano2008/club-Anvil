@@ -10,5 +10,3 @@ class RowTemplate1(RowTemplate1Template):
     self.label_staatsbuergerschaft.text = self.item["staatsbuergerschaft"]
     self.label_alter.text = str(self.item["alter_jahre"])
     self.label_gehalt.text = str(self.item["gehalt"])
-
-    

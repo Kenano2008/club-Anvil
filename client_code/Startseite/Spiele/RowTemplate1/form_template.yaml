@@ -1,10 +1,10 @@
 components:
 - components:
-  - layout_properties: {col_xs: 0, row: VPZELX, width_xs: 4}
+  - layout_properties: {col_xs: 0, row: VPZELX, width_xs: 3}
     name: button_stadion
     properties: {text: button_1}
     type: Button
-  - layout_properties: {col_xs: 3, row: VPZELX, width_xs: 2}
+  - layout_properties: {col_xs: 2, row: VPZELX, width_xs: 2}
     name: label_datum
     properties: {}
     type: Label
@@ -16,7 +16,7 @@ components:
     name: label_gegner
     properties: {}
     type: Label
-  - layout_properties: {col_xs: 9, row: VPZELX, width_xs: 2}
+  - layout_properties: {col_xs: 10, row: VPZELX, width_xs: 2}
     name: label_wettbewerb
     properties: {}
     type: Label

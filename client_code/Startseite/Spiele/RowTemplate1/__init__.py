@@ -12,4 +12,4 @@ class RowTemplate1(RowTemplate1Template):
 
   @handle("button_stadion", "click")
   def button_stadion_click(self, **event_args):
-    open_form('Startseite.AuswaertsStadion', self.item, self.item["club"])
+    open_form('Startseite.AuswaertsStadion', self.item, self.item["club_name"])

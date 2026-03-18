@@ -13,7 +13,7 @@ components:
     properties:
       columns:
       - {data_key: column_1, expand: false, id: JKSDUP, title: 'Gehalt ', width: 224}
-      - {data_key: column_2, expand: false, id: VJQQOR, title: Vertragsbeginn, width: 273}
+      - {data_key: column_2, expand: false, id: VJQQOR, title: Vertragsbeginn, width: 283}
       - {data_key: column_3, id: OJLQEN, title: 'Vertragsende '}
     type: DataGrid
   layout_properties: {slot: default}

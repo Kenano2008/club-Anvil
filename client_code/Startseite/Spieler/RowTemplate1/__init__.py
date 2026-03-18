@@ -11,8 +11,8 @@ class RowTemplate1(RowTemplate1Template):
 
   @handle("button_vertrag", "click")
   def button_vertrag_click(self, **event_args):
-    open_form('Startseite.SpielerVertrag', self.item, self.item["club"])
+    open_form('Startseite.SpielerVertrag', self.item, self.item["club_name"])
 
   @handle("button_trikot", "click")
   def button_trikot_click(self, **event_args):
-    open_form('Startseite.Trikots', self.item, self.item["club"])
+    open_form('Startseite.Trikots', self.item, self.item["club_name"])
